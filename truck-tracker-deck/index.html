@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Truck Tracker — concept presentation</title>
+  <style>
+    :root{--pink:#f3b8d0;--ink:#173f3a;--muted:#365650;--accent:#a53459;--cream:#fff4df}
+    *{box-sizing:border-box}
+    html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--pink)}
+    body{font-family:Arial,Helvetica,sans-serif;color:var(--ink)}
+    #stage{width:100vw;height:100vh;overflow:hidden;position:relative}
+    #deck{position:absolute;width:1600px;height:900px;transform-origin:top left}
+    .slide{position:absolute;inset:0;padding:82px 96px 72px;background:var(--pink);display:none;overflow:hidden}
+    .slide.active{display:block}
+    .split{display:grid;grid-template-columns:46% 54%;align-items:center;height:100%;gap:20px}
+    .split.wide{grid-template-columns:49% 51%}
+    .copy{position:relative;z-index:2;padding-right:24px}
+    .art{width:100%;height:690px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .art img{display:block;width:100%;height:100%;object-fit:contain}
+    .eyebrow{font-size:20px;line-height:1.2;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 30px}
+    h1,h2,h3,p{margin:0}
+    h1{font-size:100px;line-height:.98;letter-spacing:-.055em;max-width:750px}
+    h2{font-size:68px;line-height:1.03;letter-spacing:-.04em;max-width:750px;margin-bottom:34px}
+    .lead{font-size:34px;line-height:1.2;letter-spacing:-.014em;max-width:690px}
+    .body{font-size:28px;line-height:1.34;max-width:680px}
+    .body p+p{margin-top:23px}
+    .body strong{color:var(--ink)}
+    .body .line{display:block;margin-top:20px}
+    .small{font-size:21px;line-height:1.32;color:var(--muted)}
+    .foot{position:absolute;left:96px;bottom:39px;font-size:18px;color:var(--muted)}
+    .number{position:absolute;right:97px;bottom:38px;font-size:18px;font-weight:700;color:var(--ink)}
+    .plain{padding-top:118px}
+    .plain h2{max-width:1200px}
+    .plain .lead{max-width:1170px;font-size:48px;line-height:1.16}
+    .questions{display:grid;grid-template-columns:1fr 1fr;gap:56px 94px;margin-top:75px;max-width:1200px}
+    .questions p{font-size:39px;line-height:1.16;border-top:3px solid var(--ink);padding-top:22px}
+    .steps{display:grid;grid-template-columns:1fr 1fr;gap:46px 80px;margin-top:60px}
+    .step{border-top:3px solid var(--ink);padding-top:20px}
+    .step b{font-size:21px;color:var(--accent);display:block;margin-bottom:12px}
+    .step h3{font-size:33px;margin-bottom:12px}
+    .step p{font-size:24px;line-height:1.3;max-width:600px}
+    .final-list{margin-top:58px;display:grid;grid-template-columns:1fr 1fr;gap:42px 80px}
+    .final-list p{font-size:30px;line-height:1.28;border-top:3px solid var(--ink);padding-top:20px}
+    .note{position:absolute;left:96px;bottom:95px;font-size:21px;color:var(--muted)}
+    .controls{position:fixed;right:24px;top:18px;z-index:100;display:flex;align-items:center;gap:10px;color:var(--ink);font-size:13px}
+    .controls button{font:inherit;font-size:18px;border:1px solid var(--ink);color:var(--ink);background:var(--pink);width:34px;height:32px;cursor:pointer}
+    .controls button:hover,.controls button:focus{background:var(--cream)}
+    @media print{
+      @page{size:16in 9in;margin:0}
+      html,body{width:1600px;height:auto;overflow:visible;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+      #stage{width:1600px;height:auto;overflow:visible}
+      #deck{width:1600px;height:auto;position:static;transform:none!important}
+      .slide,.slide.active{display:block;position:relative;width:1600px;height:900px;break-after:page;page-break-after:always}
+      .controls{display:none}
+    }
+  </style>
+</head>
+<body>
+<div id="stage"><main id="deck" aria-label="Truck Tracker presentation">
+  <section class="slide active" aria-label="Slide 1: Truck Tracker">
+    <div class="split wide">
+      <div class="copy">
+        <p class="eyebrow">Build-Off concept</p>
+        <h1>Truck<br>Tracker</h1>
+        <p class="lead" style="margin-top:38px">A clearer view of every trip</p>
+        <p class="small" style="margin-top:44px">A fleet map, route alerts, and driver context for a trucking business.</p>
+      </div>
+      <figure class="art"><img src="assets/hero.png" alt="Low-poly delivery truck on a road"></figure>
+    </div>
+    <p class="foot">Concept visualization · Use the arrow keys to navigate</p><span class="number">01 / 10</span>
+  </section>
+
+  <section class="slide plain" aria-label="Slide 2: Dispatcher questions">
+    <p class="eyebrow">Problem to validate with the client</p>
+    <h2>Dispatcher questions</h2>
+    <p class="lead">The useful answer arrives while the truck is still on the road.</p>
+    <div class="questions">
+      <p>Where is the truck?</p>
+      <p>Will it arrive on time?</p>
+      <p>Why did it leave the route?</p>
+      <p>What should we do next?</p>
+    </div>
+    <p class="foot">Client discovery will identify which question costs the most time today.</p><span class="number">02 / 10</span>
+  </section>
+
+  <section class="slide" aria-label="Slide 3: Fleet map">
+    <div class="split">
+      <div class="copy">
+        <p class="eyebrow">Fleet view</p>
+        <h2>One map for active trips</h2>
+        <div class="body">
+          <p>See each truck's location, speed, status, assigned delivery, and ETA.</p>
+          <p>Select a truck to open its trip details and recent events.</p>
+        </div>
+      </div>
+      <figure class="art"><img src="assets/fleet.png" alt="Low-poly three-dimensional city map with three trucks and a route"></figure>
+    </div>
+    <p class="foot">Sample 3D map render</p><span class="number">03 / 10</span>
+  </section>
+
+  <section class="slide" aria-label="Slide 4: Weather context">
+    <div class="split">
+      <div class="copy">
+        <p class="eyebrow">Weather context</p>
+        <h2>Conditions around each truck</h2>
+        <div class="body">
+          <p>A weather feed can show rain near a truck's current location.</p>
+          <p>The visual cue helps a dispatcher read an ETA change in context.</p>
+        </div>
+      </div>
+      <figure class="art"><img src="assets/rain.png" alt="Low-poly truck driving through rain under polygonal clouds"></figure>
+    </div>
+    <p class="foot">Illustrative rain effect; weather and delay causation require separate data</p><span class="number">04 / 10</span>
+  </section>
+
+  <section class="slide" aria-label="Slide 5: Route exceptions">
+    <div class="split">
+      <div class="copy">
+        <p class="eyebrow">Route exceptions</p>
+        <h2>Spot a meaningful detour</h2>
+        <div class="body">
+          <p>Compare the GPS trail with the planned route. Alert after a configurable distance and duration threshold.</p>
+          <p>Check road context, then ask the driver for the reason.</p>
+        </div>
+      </div>
+      <figure class="art"><img src="assets/deviation.png" alt="Low-poly map showing a planned green route, a red detour, and a truck"></figure>
+    </div>
+    <p class="foot">AI may suggest an explanation; the dispatcher verifies it</p><span class="number">05 / 10</span>
+  </section>
+
+  <section class="slide" aria-label="Slide 6: Driver evidence">
+    <div class="split">
+      <div class="copy">
+        <p class="eyebrow">Driver context</p>
+        <h2>Keep the explanation with the trip</h2>
+        <div class="body">
+          <p>The driver can answer with a voice message or photo.</p>
+          <p>AI transcribes or captions the report. The original evidence stays attached to the trip for review.</p>
+        </div>
+      </div>
+      <figure class="art"><img src="assets/evidence.png" alt="Low-poly truck stopped near roadwork cones and a location marker"></figure>
+    </div>
+    <p class="foot">Example: a driver reports a road closure</p><span class="number">06 / 10</span>
+  </section>
+
+  <section class="slide" aria-label="Slide 7: Trip cost review">
+    <div class="split">
+      <div class="copy">
+        <p class="eyebrow">Finance and operations</p>
+        <h2>Review each trip's cost</h2>
+        <div class="body">
+          <p>Estimate fuel and tolls from the route and known truck assumptions.</p>
+          <p>At trip end, compare the estimate with receipts and the actual route. Flag large gaps for review.</p>
+        </div>
+      </div>
+      <figure class="art"><img src="assets/costs.png" alt="Low-poly truck near a toll gantry and fuel pump"></figure>
+    </div>
+    <p class="foot">A cost gap is a question for review, not proof of misconduct</p><span class="number">07 / 10</span>
+  </section>
+
+  <section class="slide" aria-label="Slide 8: Safety signal">
+    <div class="split">
+      <div class="copy">
+        <p class="eyebrow">Later phase</p>
+        <h2>Safer incident checks</h2>
+        <div class="body">
+          <p>A fixed IMU can measure truck tilt and motion alongside GPS location.</p>
+          <p>An unusual signal should prompt a dispatcher to check the truck and contact the driver.</p>
+        </div>
+      </div>
+      <figure class="art"><img src="assets/safety.png" alt="Low-poly truck shown at a slight angle, illustrating a motion sensor concept"></figure>
+    </div>
+    <p class="foot">Rollover detection and emergency escalation require field validation</p><span class="number">08 / 10</span>
+  </section>
+
+  <section class="slide plain" aria-label="Slide 9: MVP system">
+    <p class="eyebrow">Hackathon build</p>
+    <h2>MVP system</h2>
+    <div class="steps">
+      <div class="step"><b>01</b><h3>Truck data</h3><p>Use a phone location feed or trip replay for position and speed.</p></div>
+      <div class="step"><b>02</b><h3>Trip logic</h3><p>Calculate route position, ETA, and deviation events.</p></div>
+      <div class="step"><b>03</b><h3>Low-code workflow</h3><p>Send alerts and attach driver responses to each trip.</p></div>
+      <div class="step"><b>04</b><h3>AI assistance</h3><p>Summarize voice, images, and possible route context for review.</p></div>
+    </div>
+    <p class="foot">The 3D view presents the trip data in the browser.</p><span class="number">09 / 10</span>
+  </section>
+
+  <section class="slide plain" aria-label="Slide 10: Demo and measures">
+    <p class="eyebrow">What the demo should prove</p>
+    <h2>One trip, one clear response</h2>
+    <p class="lead">A truck leaves its route. The dispatcher finds it, sees the ETA change, asks the driver, and records the reason.</p>
+    <div class="final-list">
+      <p>Time to find the affected truck</p>
+      <p>Time to explain a deviation</p>
+      <p>ETA error against actual arrival</p>
+      <p>Number of alerts worth acting on</p>
+    </div>
+    <p class="foot">Measure these with the client before claiming improvement.</p><span class="number">10 / 10</span>
+  </section>
+</main></div>
+<div class="controls" aria-label="Slide controls">
+  <button type="button" id="prev" aria-label="Previous slide">←</button>
+  <span id="status" aria-live="polite">1 / 10</span>
+  <button type="button" id="next" aria-label="Next slide">→</button>
+</div>
+<script>
+  const slides=[...document.querySelectorAll('.slide')];
+  const deck=document.getElementById('deck');
+  const status=document.getElementById('status');
+  let index=Math.min(slides.length-1,Math.max(0,(parseInt(location.hash.slice(1),10)||1)-1));
+  function fit(){
+    const s=Math.min(innerWidth/1600,innerHeight/900);
+    deck.style.transform='scale('+s+')';
+    deck.style.left=((innerWidth-1600*s)/2)+'px';
+    deck.style.top=((innerHeight-900*s)/2)+'px';
+  }
+  function show(n){
+    index=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach((slide,i)=>{slide.classList.toggle('active',i===index);slide.setAttribute('aria-hidden',i!==index)});
+    status.textContent=(index+1)+' / '+slides.length;
+    history.replaceState(null,'','#'+(index+1));
+  }
+  addEventListener('resize',fit);
+  addEventListener('hashchange',()=>show((parseInt(location.hash.slice(1),10)||1)-1));
+  addEventListener('keydown',e=>{
+    if(['ArrowRight','PageDown',' ','Enter'].includes(e.key)){e.preventDefault();show(index+1)}
+    if(['ArrowLeft','PageUp','Backspace'].includes(e.key)){e.preventDefault();show(index-1)}
+    if(e.key==='Home')show(0);
+    if(e.key==='End')show(slides.length-1);
+  });
+  document.getElementById('next').addEventListener('click',()=>show(index+1));
+  document.getElementById('prev').addEventListener('click',()=>show(index-1));
+  let touchX=null;
+  addEventListener('touchstart',e=>{touchX=e.changedTouches[0].screenX},{passive:true});
+  addEventListener('touchend',e=>{if(touchX===null)return;const dx=e.changedTouches[0].screenX-touchX;if(Math.abs(dx)>45)show(index+(dx<0?1:-1));touchX=null},{passive:true});
+  fit();show(index);
+</script>
+</body>
+</html>

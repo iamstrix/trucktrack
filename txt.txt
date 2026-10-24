@@ -1,9 +1,8 @@
 Truck Tracker: Tracking Your Tracking Business
 
-Our target client for this hackathon is our friend's father's trucking business.
+Our target client for this hackathon is our friend's father's trucking business, or trucking businesses in general.
 
-The main purpose is to enrich the client's tracking experience with a 3D-rendered map
-of their deployed trucks, see their statuses, speed, and location on the map.
+The main purpose is to enrich the client's tracking experience with a 3D-rendered map of their deployed trucks, see their statuses, speed, and location on the map.
 
 Features, not in order, and not limited to:
     - Render the map in website using 3JS so more intuitive
@@ -13,6 +12,7 @@ Features, not in order, and not limited to:
     - Track truck movements on the map
     - View truck details
     - View truck's "quest"- which client it goes to
+        - Track driver's and AI-automated reports under each quest
     - Estimate route from Point A-B, or N
     - ETA
     - If truck wanders too far from the optimized route, send alert
@@ -47,3 +47,7 @@ Features, not in order, and not limited to:
             - They may send a voice message, auto-parsed by AI
             - They may send an image, auto-captioned by AI
             - The image will be pinned beside the truck's 3D model in the map for easier intent resolution
+    - Weather API fetching + dynamic update on 3JS site
+        - Raining on truck X general location -> rain effect on truck effect radius
+    
+
