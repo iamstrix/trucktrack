@@ -1,0 +1,49 @@
+Truck Tracker: Tracking Your Tracking Business
+
+Our target client for this hackathon is our friend's father's trucking business.
+
+The main purpose is to enrich the client's tracking experience with a 3D-rendered map
+of their deployed trucks, see their statuses, speed, and location on the map.
+
+Features, not in order, and not limited to:
+    - Render the map in website using 3JS so more intuitive
+        - New way of showing fleet
+    - Slap on a GPS on the truck
+        - Return information to 3JS
+    - Track truck movements on the map
+    - View truck details
+    - View truck's "quest"- which client it goes to
+    - Estimate route from Point A-B, or N
+    - ETA
+    - If truck wanders too far from the optimized route, send alert
+    - GPS is normally horizontal, if becomes vertical- which is very unlikely
+        - means truck turned over, send alert notification
+        - tapping on alert notification does:
+            - directs the user to the truck's location
+            - option to call driver
+            - automated emergency call regarding vehicular crash
+                - if no response from driver after a set amount of time
+    - Estimate gas price
+        - based on truck's current location
+        - based on truck's estimated gas consumption
+        - based on truck's estimated distance to travel
+    - Estimate tolls
+        - based on truck's current location
+        - based on truck's estimated distance to travel
+    - Estimate expenses
+        - based on truck's current location
+        - based on truck's estimated distance to travel
+        - based on truck's estimated gas consumption
+    - If for some reason, the final cost is diverts too far from the estimation
+        - may raise grounds for staff's mishandling of resources
+    - AI implementation
+        - If  detected that a truck deviated far from its optimized route     
+            - Trigger AI agent to search why they may have deviated 
+                - E.g. Road closure in Ortigas every weekends
+                    - If the usual route goes through the road and truck deviates far enough
+                    - AI will add a note under the deviation report that the road is closed during weekends
+        - Truck deviation query for drivers
+            - Upon deviation alert, query the driver
+            - They may send a voice message, auto-parsed by AI
+            - They may send an image, auto-captioned by AI
+            - The image will be pinned beside the truck's 3D model in the map for easier intent resolution
