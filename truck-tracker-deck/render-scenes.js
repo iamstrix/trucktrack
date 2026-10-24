@@ -182,6 +182,16 @@ if(sceneName==='safety'){
   for(const [x,z] of [[-5,-3],[5,3]])tree(scene,x,z,.8);
   setCamera([7.7,6.6,9.6],[0,1.2,0],8.8);
 }
+if(sceneName==='safety-side'){
+  ground();
+  road(scene,0,0,20,4);
+  const t=truck(scene,{scale:1.15,cargo:COLORS.cream,cab:COLORS.forest});
+  t.rotation.x=Math.PI/2;
+  t.position.set(0,1.05,0);
+  pin(scene,3.9,-1.5,COLORS.alert);
+  for(const [x,z] of [[-5,-3],[5,3]])tree(scene,x,z,.8);
+  setCamera([7.7,6.6,9.6],[0,1.1,0],8.8);
+}
 
 renderer.render(scene,camera);
 window.__RENDER_DONE__=true;

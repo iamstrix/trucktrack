@@ -42,6 +42,12 @@
     .step p{font-size:24px;line-height:1.3;max-width:600px}
     .final-list{margin-top:58px;display:grid;grid-template-columns:1fr 1fr;gap:42px 80px}
     .final-list p{font-size:30px;line-height:1.28;border-top:3px solid var(--ink);padding-top:20px}
+    .subhead{font-size:28px;line-height:1.15;color:var(--accent);margin:30px 0 11px}
+    .subbody{font-size:23px;line-height:1.28;max-width:660px}
+    .art-pair{height:690px;display:grid;grid-template-rows:1fr 1fr;gap:14px}
+    .art-pair figure{margin:0;overflow:hidden;display:flex;flex-direction:column}
+    .art-pair img{display:block;width:100%;height:calc(100% - 28px);object-fit:cover}
+    .art-pair figcaption{order:-1;font-size:20px;font-weight:700;color:var(--ink);margin-bottom:6px}
     .note{position:absolute;left:96px;bottom:95px;font-size:21px;color:var(--muted)}
     .controls{position:fixed;right:24px;top:18px;z-index:100;display:flex;align-items:center;gap:10px;color:var(--ink);font-size:13px}
     .controls button{font:inherit;font-size:18px;border:1px solid var(--ink);color:var(--ink);background:var(--pink);width:34px;height:32px;cursor:pointer}
@@ -168,8 +174,13 @@
           <p>A fixed IMU can measure truck tilt and motion alongside GPS location.</p>
           <p>An unusual signal should prompt a dispatcher to check the truck and contact the driver.</p>
         </div>
+        <h3 class="subhead">Timed AI escalation</h3>
+        <p class="subbody">If the driver does not respond within a set interval, a timer triggers an AI agent. It gathers the last location and sensor event, then prompts the dispatcher to review an emergency call.</p>
       </div>
-      <figure class="art"><img src="assets/safety.png" alt="Low-poly truck shown at a slight angle, illustrating a motion sensor concept"></figure>
+      <div class="art-pair">
+        <figure><img src="assets/safety.png" alt="Low-poly truck shown at a slight angle"><figcaption>Unusual tilt</figcaption></figure>
+        <figure><img src="assets/safety-side.png" alt="Low-poly truck fallen on its side"><figcaption>Sideways state</figcaption></figure>
+      </div>
     </div>
     <p class="foot">Rollover detection and emergency escalation require field validation</p><span class="number">08 / 10</span>
   </section>
